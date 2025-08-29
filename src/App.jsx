@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 const App = () => {
-  const [username, setusername] = useState("Sarthak");
+  const [username, setusername] = useState("Sarthak",);
   const changeHandler = () => {
-    setusername("Zuhaib");
+    setusername("Zuhaib",);
   };
 
   return (

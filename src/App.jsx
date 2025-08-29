@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 
 const App = () => {
-  const [username, setusername] = useState("Sarthak",);
-  const changeHandler = () => {
-    setusername("Zuhaib",);
-  };
-
+  const [username, setusername] = useState("Sarthak");
   return (
     <div>
-      <h1>Change Username</h1>
+      <h1>Changing userName using useStat Hook</h1>
       <h2>{username}</h2>
-      <button onClick={changeHandler}>click to Chnge Username</button>
+      <button onClick={() => setusername("Zuhaib")}>Click to Change </button>
     </div>
   );
 };

@@ -1,85 +1,20 @@
-// import React, { useState } from "react";
-
-// const App = () => {
-//   const [users, setusers] = useState([
-//     { name: "Zuhaib", Age: 17 },
-//     { name: "Zuhaib", Age: 17 },
-//     { name: "Zuhaib", Age: 17 },
-//   ]);
-//   const renderUsers = users.map((user, index) => {
-//     return (
-//       <li key={index}>
-//         <span>{user.name}</span> |<small> {user.Age}</small>
-//       </li>
-//     );
-//   });
-//   const [fullname, setfullname] = useState("");
-//   const [age, setage] = useState(18);
-
-//   const formSubmit = (e) => {
-//     e.preventDefault();
-//     const newUser = { fullname, age };
-//     console.log(newUser);
-//   };
-
-//   return (
-//     <div>
-//       <h1>Register user</h1>
-//       <form onSubmit={formSubmit}>
-//         <input
-//           onChange={(e) => setfullname(e.target.value)}
-//           value={fullname}
-//           type="text"
-//           placeholder="Full Name"
-//         />
-//         <input
-//           onChange={(e) => setage(e.target.value)}
-//           value={age}
-//           type="number"
-//           placeholder="Age"
-//         />
-//         <button>Submit</button>
-//       </form>
-//       <hr />
-//       <h2>USer Data</h2>
-//       <ol>{renderUsers}</ol>
-//     </div>
-//   );
-// };
-
-// export default App;
-import React, { useState } from "react";
+import React, { useState } from 'react'
+import Create from './components/create'
+import Read from './components/Read'
 
 const App = () => {
-  const [fullname, setfullname] = useState("");
-  const [age, setage] = useState(18);
-
+   const [users, setusers] = useState([
+    { name: "Zuhaib", age: 17 },
+    { name: "Zuhaib", age: 17 },
+    { name: "Zuhaib", age: 17 },
+  ]);
   return (
     <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          let newUser = { fullname, age };
-          console.log(newUser);
-        }}
-      >
-        <h1>2-way Binding in action Dude</h1>
-        <input
-          onChange={(e) => setfullname(e.target.value)}
-          value={fullname}
-          type="text"
-          placeholder="Full Name"
-        />
-        <input
-          onChange={(e) => setage(e.target.value)}
-          value={age}
-          type="number"
-          placeholder="Age"
-        />
-        <button>Submit</button>
-      </form>
-    </div>
-  );
-};
+      <Create />
+      <Read users={users} setusers={setusers} />
 
-export default App;
+    </div>
+  )
+}
+
+export default App

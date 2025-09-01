@@ -2,37 +2,38 @@ import { nanoid } from "nanoid";
 import React, { useState } from "react";
 
 const create = (props) => {
-  const todos = props.todos
-  const settodos = props.settodos
+  const todos = props.todos;
+  const settodos = props.settodos;
   const [title, settitle] = useState("");
   const submitHandler = (e) => {
     e.preventDefault();
-    let newTodo = {
+    let newtodos = {
       id: nanoid(),
       title,
-      isComplete: false,
+      isCompleted: false,
     };
-    let copyTodos = [...todos];
-    copyTodos.push(newTodo);
-    settodos(copyTodos);
-    settitle("")
+    let copytodos = [...todos];
+    copytodos.push(newtodos);
+    settodos(copytodos);
+    settitle('')
   };
   return (
-    <div>
-      <h1>Start your Day With your todo's</h1>
+    <>
+      <h1>Start Your day with the Todos</h1>
       <form onSubmit={submitHandler}>
         <input
           onChange={(e) => settitle(e.target.value)}
           value={title}
           type="text"
-          placeholder="Todo tiltle"
+          placeholder="Todo Title"
         />
+        <br />
         <br />
         <br />
         <button>Create Todo</button>
       </form>
       <hr />
-    </div>
+    </>
   );
 };
 

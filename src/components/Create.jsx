@@ -1,35 +1,9 @@
-import React, { useState } from "react";
+import React from 'react'
 
-const create = (props) => {
-  const [fullname, setfullname] = useState("");
-  const [age, setage] = useState("17");
+const create = () => {
   return (
-    <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          let newUser = { fullname, age };
-          console.log(newUser);
-        }}
-      >
-        <h1>Props driling, usesate and 2 way binding</h1>
-        <input
-          onChange={(e) => setfullname(e.target.value)}
-          value={fullname}
-          type="text"
-          placeholder="Full Name"
-        />
-        <input
-          onChange={(e) => setage(e.target.value)}
-          value={age}
-          type="number"
-          placeholder="Age"
-        />
-        <button>Submit</button>
-        <hr />
-      </form>
-    </div>
-  );
-};
+    <div>create</div>
+  )
+}
 
-export default create;
+export default create

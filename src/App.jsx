@@ -1,17 +1,35 @@
+import { nanoid } from "nanoid";
 import React, { useState } from "react";
-import Create from "./components/create";
-import Read from "./components/Read";
 
 const App = () => {
-  const [users, setusers] = useState([
-    { name: "Zuhaib", age: 17 },
-    { name: "Zuhaib", age: 17 },
-    { name: "Zuhaib", age: 17 },
+  const [title, settitle] = useState("");
+  const [todos, settodos] = useState([
+    { id: 1, title: "Kaam ker ly", isCompleted: false },
   ]);
   return (
     <div>
-      <Create />
-      <Read users={users} setusers={setusers} />
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          let newTodo = {
+            id: nanoid(),
+            title,
+            isCompleted: false,
+          };
+          console.log(newTodo);
+          
+        }}
+      >
+        <h1>To-Do</h1>
+        <input
+          onChange={(e) => settitle(e.target.value)}
+          value={title}
+          type="text"
+          placeholder="Todo Title"
+        />
+        <br /> <br />
+        <button>Create Todo</button>
+      </form>
     </div>
   );
 };

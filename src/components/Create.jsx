@@ -15,24 +15,30 @@ const create = (props) => {
     let copyTodos = [...todos];
     copyTodos.push(newTodos);
     settodos(copyTodos);
+    settitle('')
   };
   return (
-    <>
-      <h1>Start your day with the Todos</h1>
+    <div className=" w-[60%]  p-10 mb-10">
+      <h1 className="text-5xl font-thin mb-10  ">
+        Set <span className="text-red-400 mb-10">Reminder</span> for{" "}
+        <br className="mb-10" /> Tasks
+      </h1>
       <form onSubmit={submitHandler}>
         <input
+          className="border-b w-100 text-2xl font-thin p-2 outline-0"
           onChange={(e) => settitle(e.target.value)}
           value={title}
           type="text"
-          placeholder="Todo tilte"
+          placeholder="Todo title"
         />
         <br />
         <br />
         <br />
-        <button>Create Todo</button>
-        <hr />
+        <button className="btn text-xl px-10 py-2 bg-red-500  border active:scale-95 rounded-xl mt-5  ">
+          Create Todo
+        </button>
       </form>
-    </>
+    </div>
   );
 };
 

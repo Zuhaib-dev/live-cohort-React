@@ -2,16 +2,17 @@ import React, { useState } from "react";
 
 const create = (props) => {
   const [fullname, setfullname] = useState("");
-  const [age, setage] = useState("");
+  const [age, setage] = useState("17");
   return (
     <div>
-      <form onSubmit={(e)=>{
-        e.preventDefault()
-        let newUser = {fullname,age}
-        console.log(newUser);
-        
-      }}>
-        <h1>2 way Binding and Props Driling</h1>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          let newUser = { fullname, age };
+          console.log(newUser);
+        }}
+      >
+        <h1>Props driling, usesate and 2 way binding</h1>
         <input
           onChange={(e) => setfullname(e.target.value)}
           value={fullname}
@@ -25,8 +26,8 @@ const create = (props) => {
           placeholder="Age"
         />
         <button>Submit</button>
+        <hr />
       </form>
-      <hr />
     </div>
   );
 };

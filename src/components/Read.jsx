@@ -5,14 +5,14 @@ const Read = (props) => {
   const renderUsers = users.map((user, index) => {
     return (
       <li key={index}>
-        <span> {user.name} </span> |
-        <small>  {user.age}</small>
+        <span>Name: {user.name}</span> |<small> Age: {user.age}</small>
       </li>
     );
   });
+
   return (
     <div>
-      <h1>UserData</h1>
+      <h1>USer Data</h1>
       <ol>{renderUsers}</ol>
     </div>
   );

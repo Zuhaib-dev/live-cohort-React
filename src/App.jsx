@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Read from "./components/Read";
 import Create from "./components/create";
 
 const App = () => {
-  const [todos, settodos] = useState([
-    { id: 1, title: "Ker ly kuch", isCompleted: false },
+  const [Todos, setTodos] = useState([
+    { id: 1, title: "Kuch to ker", isCompleted: false },
   ]);
   return (
     <>
-      <Create todos={todos} settodos={settodos} />
-      <Read todos={todos} settodos={settodos} />
+      <Create Todos={Todos} setTodos={setTodos} />
+      <Read Todos={Todos} setTodos={setTodos} />
     </>
   );
 };

@@ -1,29 +1,21 @@
 import React from "react";
 
 const Read = (props) => {
-  const todos = props.todos;
-  const settodos = props.settodos;
-  const deletehandeler = (id) => {
-    const filtertodos = todos.filter((todo) => todo.id != id);
-    settodos(filtertodos);
-  };
-  const claerHandler = (id) => {
-    const clearTodos = todos.filter((todo) => todo.id != id);
-    settodos([]);
-  };
+  const todos = props.Todos;
+  const settodos = props.setTodos;
+  const deletehandeler = (id)=>{
+    let filterTodos = todos.filter((todo)=> todo.id != id)
+    settodos(filterTodos)
+  }
   const renderTodos = todos.map((todo) => {
-    return (
-      <li key={todo.id}>
-        {todo.title} |{" "}
-        <span onClick={() => deletehandeler(todo.id)}>Delete</span>{" "}
-        <span onClick={() => claerHandler(todo.id)}>Clear All</span>
-      </li>
-    );
+    return <li key={todo.id}>{todo.title} | <span onClick={()=>deletehandeler(todo.id)}>Delete</span>
+     
+    </li> 
   });
 
   return (
     <>
-      <h1>Pendind Todos </h1>
+      <h1>Pending Todos </h1>
       <ol>{renderTodos}</ol>
     </>
   );

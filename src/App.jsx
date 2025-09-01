@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const App = () => {
   const [title, settitle] = useState("");
   const [todos, settodos] = useState([
-    { id: 1, title: "Kaam ker ly", isCompleted: false },
+    { id: 1, title: "Kam ker ly", isCompleted: false },
   ]);
   const submitHandler = (e) => {
     e.preventDefault();
@@ -13,36 +13,30 @@ const App = () => {
       title,
       isCompleted: false,
     };
-    let copytodos = [...todos];
-    copytodos.push(newTodo);
-    settodos(copytodos)
-     
-    settitle("")
-    
+    let copyTodos = [...todos];
+    copyTodos.push(newTodo);
+    settodos(copyTodos);
   };
-
-  const renderTodos = todos.map(todo => {
-    return <li key={todo.id}> {todo.title}</li>
-  })
-  
-
-
+  const renderTodos = todos.map((todo) => {
+    return <li key={todo.id}>{todo.title}</li>;
+  });
   return (
     <div>
+      <h1>TOdos </h1>
       <form onSubmit={submitHandler}>
-        <h1>To-Do</h1>
         <input
           onChange={(e) => settitle(e.target.value)}
           value={title}
           type="text"
-          placeholder="Todo Title"
+          placeholder="TOdo Title"
         />
-        <br /> <br />
-        <button>Create Todo</button>
+        <br />
+        <br />
+        <button>Create Todo </button>
       </form>
-      <ol>
-        {renderTodos}
-      </ol>
+      <hr />
+      <h1>Pending Todos</h1>
+      <ol>{renderTodos}</ol>
     </div>
   );
 };

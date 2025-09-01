@@ -1,21 +1,26 @@
 import { nanoid } from "nanoid";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const create = (props) => {
   const todos = props.Todos;
   const settodos = props.setTodos;
-  const [title, settitle] = useState("");
-  const submitHandler = (e) => {
-    e.preventDefault();
-    let newTodos = {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const submitHandler = (data) => {
+    data.isComplete = false;
+    data.id = nanoid();
+
+    const newTodos = {
       id: nanoid(),
-      title,
+      // title,
       isComplete: false,
     };
-    let copyTodos = [...todos];
-    copyTodos.push(newTodos);
-    settodos(copyTodos);
-    settitle('')
   };
   return (
     <div className=" w-[60%]  p-10 mb-10">
@@ -23,11 +28,10 @@ const create = (props) => {
         Set <span className="text-red-400 mb-10">Reminder</span> for{" "}
         <br className="mb-10" /> Tasks
       </h1>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={handleSubmit(submitHandler)}>
         <input
+          {...register("title")}
           className="border-b w-100 text-2xl font-thin p-2 outline-0"
-          onChange={(e) => settitle(e.target.value)}
-          value={title}
           type="text"
           placeholder="Todo title"
         />

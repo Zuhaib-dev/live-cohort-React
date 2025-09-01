@@ -34,8 +34,8 @@ const Read = (props) => {
 
   return (
     <div className="w-[40%]">
-      <h1 className="text-5xl font-thin mb-10">Pending Todos </h1>
-      <ol className="text-3xl font-thin mb-10">{renderTodos}</ol>
+      <h1 className="text-5xl font-thin mb-10">Pending <span className="text-rose-400">Todo's</span> </h1>
+      <ol className="text-3xl font-thin mb-10  ">{renderTodos}</ol>
     </div>
   );
 };

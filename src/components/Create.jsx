@@ -15,12 +15,12 @@ const create = (props) => {
   const submitHandler = (data) => {
     data.isComplete = false;
     data.id = nanoid();
+    console.log(data);
+    const copyTodos = [...todos];
+    copyTodos.push(data);
+    settodos(copyTodos);
 
-    const newTodos = {
-      id: nanoid(),
-      // title,
-      isComplete: false,
-    };
+    reset();
   };
   return (
     <div className=" w-[60%]  p-10 mb-10">

@@ -13,6 +13,7 @@ const Read = (props) => {
     let clearAll = todos.filter((todo) => todo.id != id);
     settodos([]);
     toast.error("All Todo Deleted");
+
   };
 
   const renderTodos = todos.map((todo) => {

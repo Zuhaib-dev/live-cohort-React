@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { toast } from "react-toastify";
+import { todoContext } from "../Wrapper";
 
-const Read = (props) => {
-  const todos = props.Todos;
-  const settodos = props.setTodos;
+const Read = () => {
+  const [todos, settodos] = useContext(todoContext);
   const deletehandeler = (id) => {
     let filterTodos = todos.filter((todo) => todo.id != id);
     settodos(filterTodos);
@@ -13,7 +13,6 @@ const Read = (props) => {
     let clearAll = todos.filter((todo) => todo.id != id);
     settodos([]);
     toast.error("All Todo Deleted");
-
   };
 
   const renderTodos = todos.map((todo) => {

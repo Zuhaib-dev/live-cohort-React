@@ -1,11 +1,12 @@
 import { nanoid } from "nanoid";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { todoContext } from "../Wrapper";
 
-const create = (props) => {
-  const todos = props.Todos;
-  const settodos = props.setTodos;
+const create = () => {
+  const [todos, settodos] = useContext(todoContext);
+
   const {
     register,
     handleSubmit,
@@ -20,7 +21,7 @@ const create = (props) => {
     const copyTodos = [...todos];
     copyTodos.push(data);
     settodos(copyTodos);
-    toast.success("Todo Created!")
+    toast.success("Todo Created!");
 
     reset();
   };
@@ -38,7 +39,9 @@ const create = (props) => {
           type="text"
           placeholder="Todo title"
         />
-        <small className="font-thin text-red-500">{errors?.title?.message}</small>
+        <small className="font-thin text-red-500">
+          {errors?.title?.message}
+        </small>
         <br />
         <br />
         <br />

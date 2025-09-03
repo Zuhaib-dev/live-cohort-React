@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const Read = (props) => {
   const todos = props.Todos;
@@ -6,11 +7,14 @@ const Read = (props) => {
   const deletehandeler = (id) => {
     let filterTodos = todos.filter((todo) => todo.id != id);
     settodos(filterTodos);
+    toast.error("Todo Deleted");
   };
-  const clearAllHandler = (id)=>{
-    let clearAll = todos.filter((todo)=> todo.id != id)
-    settodos([])
-  }
+  const clearAllHandler = (id) => {
+    let clearAll = todos.filter((todo) => todo.id != id);
+    settodos([]);
+    toast.error("All Todo Deleted");
+  };
+
   const renderTodos = todos.map((todo) => {
     return (
       <li key={todo.id}>
@@ -26,7 +30,7 @@ const Read = (props) => {
           className="text-red-700 active:scale-95 cursor-pointer px-3"
           onClick={() => clearAllHandler(todo.id)}
         >
-           Clear All
+          Clear All
         </span>
       </li>
     );
@@ -34,7 +38,9 @@ const Read = (props) => {
 
   return (
     <div className="w-[40%]">
-      <h1 className="text-5xl font-thin mb-10">Pending <span className="text-rose-400">Todo's</span> </h1>
+      <h1 className="text-5xl font-thin mb-10">
+        Pending <span className="text-rose-400">Todo's</span>{" "}
+      </h1>
       <ol className="text-3xl font-thin mb-10  ">{renderTodos}</ol>
     </div>
   );

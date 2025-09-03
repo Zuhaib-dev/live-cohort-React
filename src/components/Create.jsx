@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const create = (props) => {
   const todos = props.Todos;
@@ -19,9 +20,11 @@ const create = (props) => {
     const copyTodos = [...todos];
     copyTodos.push(data);
     settodos(copyTodos);
+    toast.success("Todo Created!")
 
     reset();
   };
+
   return (
     <div className=" w-[60%]  p-10 mb-10">
       <h1 className="text-5xl font-thin mb-10  ">
@@ -30,11 +33,12 @@ const create = (props) => {
       </h1>
       <form onSubmit={handleSubmit(submitHandler)}>
         <input
-          {...register("title")}
+          {...register("title", { required: "Title Can't be empty" })}
           className="border-b w-100 text-2xl font-thin p-2 outline-0"
           type="text"
           placeholder="Todo title"
         />
+        <small className="font-thin text-red-500">{errors?.title?.message}</small>
         <br />
         <br />
         <br />

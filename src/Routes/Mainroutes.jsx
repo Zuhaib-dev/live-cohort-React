@@ -1,25 +1,19 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Home from '../Components/Home'
-import Products from '../Components/Products'
-import Services from '../Components/Services'
-import About from '../Components/About'
-import ProductDetail from '../Components/ProductsDetail'
-import ServiceDetail from '../Components/ServiceDetail'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "../pages/Home";
+import Recipes from "../pages/Recipes";
+import About from "../pages/About";
+import CreateRecipes from "../pages/CreateRecipes";
 
 const Mainroutes = () => {
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/products' element={<Products />} />
-      <Route path='/products/detail/:name' element={<ProductDetail />} />
-      <Route path='/services' element={<Services />} >
-      <Route path='/services/detail' element={<ServiceDetail />} />
-      </Route>
-      
-      <Route path='/about' element={<About />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/recipes" element={<Recipes />} />
+      <Route path="/createrecipes" element={<CreateRecipes />} />
+      <Route path="/about" element={<About />} />
     </Routes>
-  )
-}
+  );
+};
 
-export default Mainroutes
+export default Mainroutes;

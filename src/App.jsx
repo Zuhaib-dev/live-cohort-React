@@ -1,15 +1,12 @@
 import React from 'react'
-
-import Nav from './Nav'
-import MainRouts from './routes/MainRouts'
+import Nav from './Components/Nav'
+import Mainroutes from './Routes/Mainroutes'
 
 const App = () => {
   return (
-    <div className='w-screen h-screen px-10 bg-gray-800 text-white'> 
-    <Nav />
-    <MainRouts />
-   
-
+    <div className='h-screen w-screen bg-gray-800 text-white px-10'>
+      <Nav />
+      <Mainroutes />
     </div>
   )
 }

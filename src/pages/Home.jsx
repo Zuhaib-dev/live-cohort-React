@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Axios from "../utils/Axios";
 
 const Home = () => {
@@ -9,6 +10,14 @@ const Home = () => {
       console.log(error);
     }
   };
+  useEffect(()=>{
+    console.log("Home Mounted");
+    return()=>{
+      console.log("Homw UnMounted");
+      
+    }
+    
+  })
 
   return (
     <div>

@@ -3,8 +3,10 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form"; 
 import { toast } from "react-toastify";
 import { contextrecipe } from "../context/RecipeConetxt";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
+  const navigate = useNavigate()
   const { data, setdata } = useContext(contextrecipe);
   const { register, handleSubmit, reset } = useForm();
 
@@ -14,6 +16,7 @@ const Create = () => {
     setdata([...data, newRecipe]); 
     reset();
     toast.success("Recipe Created ✅"); 
+    navigate('/recipes')
   };
 
   return (

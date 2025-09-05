@@ -15,7 +15,7 @@ const RecipeCard = () => {
             <img
               src={recipe.image}
               alt={recipe.title}
-              className="w-full h-52 object-cover transition-transform duration-300 hover:scale-110"
+              className="w-full h-52 object-cover rounded-xl transition-transform duration-300 hover:scale-110"
             />
             <div className="p-5 flex flex-col gap-3">
               <h2 className="text-xl font-bold text-gray-900">

@@ -1,32 +1,29 @@
-import { useEffect } from "react";
-import Axios from "../utils/Axios";
+import axios from "axios";
+import Axios from '../utils/Axios'
+import React, { useEffect } from "react";
 
 const Home = () => {
   const getProducts = async () => {
     try {
-      const  {data}  = await Axios.get("/products/1");
+      const { data } = await Axios.get("products/1");
       console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(()=>{
+    getProducts()
     console.log("Home Mounted");
-    return()=>{
-      console.log("Homw UnMounted");
+    return(()=>{
+      console.log("Home UnMounted");
       
-    }
+    })
     
-  })
-
-  return (
-    <div>
-      <h1>Home</h1>
-      <button onClick={getProducts} className="bg-green-500 px-4 py-2 rounded-2xl active:scale-95">
-        Get Products
-      </button>
-    </div>
-  );
+  },[])
+  return <div>
+    <h1>Home</h1>
+    <button onClick={getProducts}>click to get data </button>
+  </div>;
 };
 
 export default Home;

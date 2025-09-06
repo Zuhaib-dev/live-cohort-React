@@ -3,13 +3,10 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import RecipeConetxt from "./context/RecipeConetxt.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <RecipeConetxt>
   <BrowserRouter>
     <App />
-    <ToastContainer position="top-center" />
+    <ToastContainer />
   </BrowserRouter>
-   </RecipeConetxt>
 );

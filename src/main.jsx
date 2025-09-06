@@ -9,7 +9,7 @@ createRoot(document.getElementById("root")).render(
   <RecipeConetxt>
   <BrowserRouter>
     <App />
-    <ToastContainer  />
+    <ToastContainer position="top-center" />
   </BrowserRouter>
    </RecipeConetxt>
 );

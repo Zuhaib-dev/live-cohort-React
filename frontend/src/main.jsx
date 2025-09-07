@@ -3,14 +3,14 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import store from "./store/Store.jsx";
+import { store } from './store/Store.jsx'
 import { Provider } from 'react-redux'
- 
+
 createRoot(document.getElementById("root")).render(
+  <Provider store={store}>
   <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
-    <ToastContainer />
+    <App />
   </BrowserRouter>
+  <ToastContainer />
+  </Provider>
 );
